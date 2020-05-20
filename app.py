@@ -28,6 +28,15 @@ def convert():
     src_currency = request.form['src_currency'].upper()
     tgt_currency = request.form['tgt_currency'].upper()
     
+    try:
+        amount = int(amount)
+    except Exception as e:
+        return "Please enter a number."
+
+    if amount < 1:
+        return "Please enter a positive number."
+
+
     response = requests.get(f"https://free.currconv.com/api/v7/convert?q={src_currency}_{tgt_currency}&compact=ultra&apiKey=09cb0e075a44116bd021")
     result = response.json()[f"{src_currency}_{tgt_currency}"]
     result = float(result)*int(amount)
