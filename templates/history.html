@@ -3,9 +3,9 @@
 <ul>
   {% for entry in history %}
   <li>
-    <strong>Source:</strong> {{ entry.src_amount }} {{ entry.src_currency }}
+    <strong>Source:</strong> {{ entry.src_amount }} {{ entry.src_currency }} in {{ entry.tgt_currency }}
     &nbsp;
-    <strong>Result:</strong> {{ entry.tgt_amount }} {{ entry.tgt_currency }}
+    <strong>Result:</strong> {{ entry.result }}
   </li>
   {% endfor %}
 </ul>
